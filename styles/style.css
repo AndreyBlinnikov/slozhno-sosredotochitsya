@@ -1,9 +1,9 @@
 /* Основные стили проекта. Это стили для темы, которую вы верстаете первой. */
 .page {
   /* сохраните в разметке и стилях класс page. На его основе работает скрипт. */
-  font-family: var(--page-font-family);
+  font-family: var(--page-font-family), sans-serif;
   font-size: var(--main-font-size, 18px);
-  padding: 20px;
+  padding: 10px;
   background-image: var(--page-background-image);
   background-color: var(--page-background-color);
   background-position: center;
@@ -40,8 +40,8 @@
   grid-template-rows: 1fr max-content 1fr;
   block-size: 100vh;
   min-block-size: 668px;
-  padding-block-end: 39px;
-  margin-block-end: 40px;
+  padding-block-end: 20px;
+  margin-block-end: 30px;
 }
 
 .decorated-zone {
@@ -85,9 +85,9 @@
   color: var(--button-color);
   background-color: transparent;
   border: 1px solid transparent;
-  padding: 2px 13px 5px;
-  line-height: 18px;
+  padding: 2px 12px 3px 13px;
   font-weight: 400;
+  line-height: 23px;
   cursor: pointer;
 }
 
@@ -110,7 +110,7 @@
 
 .header__title {
   font-size: clamp(7.25rem, 7.0115rem + 1.0178vw, 7.5rem);
-  line-height: 82.2%;
+  line-height: 83%;
   font-weight: 700;
   color: var(--main-title-color);
   text-shadow: 4px 4px 0 var(--accent-color);
@@ -182,7 +182,7 @@
 
 .link {
   text-decoration: none;
-  text-shadow: 2px 2px 0 var(--link-color);
+  text-shadow: 2px 2px 0 #FF8DCB;
 }
 
 .link:hover {
@@ -223,8 +223,11 @@
   gap: 5px;
 }
 
-.in-pictures__image {
+.in-pictures__image-item__block {
   inline-size: 355px;
+}
+
+.in-pictures__image {
   width: 100%;
   height: 100%;
   object-fit: cover;
@@ -249,10 +252,40 @@
   font-family: var(--page-font-family), sans-serif;
 }
 
-@media (768px <= width < 1024px) {
+@media (768px <= width <= 1024px) {
 
   .header {
     min-block-size: 1024px;
+    padding-block-end: 39px;
+    margin-block-end: 40px;
+  }
+
+  .header__text {
+    max-inline-size: 364px;
+  }
+
+  .why,
+  .how {
+    grid-template-columns: fit-content(236px) 1fr;
+  }
+
+  .section__title {
+    max-inline-size: 236px;
+  }
+
+  .in-pictures__image-list {   
+    gap: 13px;
+  }
+
+  .footer {
+    min-block-size: 1024px;
+  }
+
+}
+
+@media (width >= 768px) {
+  .page {
+    padding: 20px;
   }
 
   .main {
@@ -267,26 +300,21 @@
   }
 
   .header__text {
-    max-inline-size: 364px;
     justify-self: end;
-  }
-
-  .header__text p {
-    max-width: 491px;
-  }
-
-  .decorated-zone::before {
-    inset-block-end: 39px;
   }
 
   .why,
   .how {
     display: grid;
-    grid-template-columns: fit-content(236px) 1fr;
   }
 
-  .section__title {
-    max-inline-size: 236px;
+  .in-pictures__image-list {
+    display: grid;
+    grid-auto-flow: dense;
+    grid-template-areas:
+      "cloud cloud food"
+      "music read food"
+      "music walk walk";
   }
 
   .section-in-pictures {
@@ -313,34 +341,26 @@
     grid-area: walk;
   }
 
-  .in-pictures__image-list {
-    display: grid;
-    grid-auto-flow: dense;
-    grid-template-areas:
-      "cloud cloud food"
-      "music read food"
-      "music walk walk";
-    gap: 13px;
+  .decorated-zone::before {
+    inset-block-end: 39px;
   }
 
   .footer {
-    min-block-size: 1024px;
     padding-block-end: 39px;
   }
 
   .footer__title {
     font-size: clamp(7.5rem, 0.5625rem + 14.4531vw, 9.8125rem);
   }
+
 }
 
 @media (width >= 1024px) {
 
   .header {
     min-block-size: 768px;
-  }
-
-  .decorated-zone::before {
-    inset-block-end: 39px;
+    padding-block-end: 39px;
+    margin-block-end: 40px;
   }
 
   .header__theme-menu {
@@ -348,31 +368,22 @@
     align-self: self-start;
   }
 
+  .header__theme-menu-button {
+    padding: 0 13px 0 13px;
+  }
+
   .header__theme-menu-list {
     flex-direction: row;
     gap: 10px;
   }
 
-  .header__title {
-    position: relative;
-    inset-inline-end: 20px;
-    font-size: clamp(7.5rem, 0.5625rem + 14.4531vw, 9.8125rem);
-    line-height: 83%;
-  }
-
   .header__text {
     max-inline-size: 491px;
-    justify-self: end;
   }
 
-  .main {
-    gap: 80px;
-    margin-block-end: 76px;
-  }
 
   .why,
   .how {
-    display: grid;
     grid-template-columns: fit-content(315px) 1fr;
   }
 
@@ -380,9 +391,6 @@
     max-inline-size: 315px;
   }
 
-  .section-in-pictures {
-    gap: 15px;
-  }
 
   .what {
     display: flex;
@@ -394,44 +402,15 @@
     grid-template-columns: repeat(3, 1fr);
   }
 
-  .cloud {
-    grid-area: cloud;
-  }
-
-  .food {
-    grid-area: food;
-  }
-
-  .music {
-    grid-area: music;
-  }
-
-  .read {
-    grid-area: read;
-  }
-
-  .walk {
-    grid-area: walk;
-  }
+  
 
   .in-pictures__image-list {
-    display: grid;
-    /* grid-template-columns: repeat(3, fit-content);
-    grid-template-rows: repeat(3, fit-content); */
-    grid-auto-flow: dense;
-    grid-template-areas:
-      "cloud cloud food"
-      "music read food"
-      "music walk walk";
     gap: 14px;
   }
 
   .footer {
     min-block-size: 768px;
-    padding-block-end: 39px;
-  }
-
-  .footer__title {
-    font-size: clamp(7.5rem, 0.5625rem + 14.4531vw, 9.8125rem);
   }
 }
+
+
