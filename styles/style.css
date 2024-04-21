@@ -1,9 +1,9 @@
 /* Основные стили проекта. Это стили для темы, которую вы верстаете первой. */
 .page {
   /* сохраните в разметке и стилях класс page. На его основе работает скрипт. */
-  font-family: var(--page-font-family), sans-serif;
+  font-family: var(--page-font-family);
   font-size: var(--main-font-size, 18px);
-  padding: 10px;
+  padding: 20px;
   background-image: var(--page-background-image);
   background-color: var(--page-background-color);
   background-position: center;
@@ -40,8 +40,8 @@
   grid-template-rows: 1fr max-content 1fr;
   block-size: 100vh;
   min-block-size: 668px;
-  padding-block-end: 20px;
-  margin-block-end: 30px;
+  padding-block-end: 39px;
+  margin-block-end: 40px;
 }
 
 .decorated-zone {
@@ -85,11 +85,9 @@
   color: var(--button-color);
   background-color: transparent;
   border: 1px solid transparent;
-  padding: 2px 12px 3px 13px;
+  padding: 2px 13px 5px;
+  line-height: 18px;
   font-weight: 400;
-  line-height: var(--line-height);
-  font-family: inherit;
-  font-size: inherit;
   cursor: pointer;
 }
 
@@ -225,11 +223,8 @@
   gap: 5px;
 }
 
-.in-pictures__image-item__block {
-  inline-size: 355px;
-}
-
 .in-pictures__image {
+  inline-size: 355px;
   width: 100%;
   height: 100%;
   object-fit: cover;
@@ -245,7 +240,7 @@
 
 .footer__title {
   font-size: clamp(7.25rem, 7.0115rem + 1.0178vw, 7.5rem);
-  line-height: 82.2%;
+  line-height: 83%;
   font-weight: 700;
   color: var(--main-title-color);
   text-shadow: 2px 2px 0 var(--accent-color);
@@ -255,14 +250,9 @@
 }
 
 @media (768px <= width < 1024px) {
-  .page {
-    padding: 20px;
-  }
 
   .header {
     min-block-size: 1024px;
-    padding-block-end: 39px;
-    margin-block-end: 40px;
   }
 
   .main {
@@ -279,6 +269,10 @@
   .header__text {
     max-inline-size: 364px;
     justify-self: end;
+  }
+
+  .header__text p {
+    max-width: 491px;
   }
 
   .decorated-zone::before {
@@ -321,8 +315,6 @@
 
   .in-pictures__image-list {
     display: grid;
-    grid-template-columns: repeat(3, fit-content);
-    grid-template-rows: repeat(3, fit-content);
     grid-auto-flow: dense;
     grid-template-areas:
       "cloud cloud food"
@@ -342,14 +334,9 @@
 }
 
 @media (width >= 1024px) {
-  .page {
-    padding: 20px;
-  }
 
   .header {
     min-block-size: 768px;
-    padding-block-end: 39px;
-    margin-block-end: 40px;
   }
 
   .decorated-zone::before {
@@ -361,10 +348,6 @@
     align-self: self-start;
   }
 
-  .header__theme-menu-button {
-    padding: 0 13px 0 13px;
-  }
-
   .header__theme-menu-list {
     flex-direction: row;
     gap: 10px;
@@ -374,6 +357,7 @@
     position: relative;
     inset-inline-end: 20px;
     font-size: clamp(7.5rem, 0.5625rem + 14.4531vw, 9.8125rem);
+    line-height: 83%;
   }
 
   .header__text {
@@ -432,8 +416,8 @@
 
   .in-pictures__image-list {
     display: grid;
-    grid-template-columns: repeat(3, fit-content);
-    grid-template-rows: repeat(3, fit-content);
+    /* grid-template-columns: repeat(3, fit-content);
+    grid-template-rows: repeat(3, fit-content); */
     grid-auto-flow: dense;
     grid-template-areas:
       "cloud cloud food"

@@ -25,7 +25,7 @@
 }
 
 @media (prefers-color-scheme: light) {
-  .page {
+  :root {
     --main-title-color: #ffc2e6;
     --color-rec: transparent;
     --accent-color: #ff8dcb;

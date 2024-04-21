@@ -5,7 +5,7 @@
 :root {
   --accent-color: #ff0070;
   --color-rec: #ff0070;
-  --page-font-family: "IBM Plex mono";
+  --page-font-family: "IBM Plex mono", Courier, monospace;
   --main-font-size: 18px;
   --main-title-color: #db00ff;
   --line-height: 23.4px;
